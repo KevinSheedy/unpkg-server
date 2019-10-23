@@ -1,4 +1,5 @@
 const argv = require('minimist')(process.argv.slice(2));
+require('dotenv').config();
 
 const { _, ...flags } = argv;
 
@@ -7,8 +8,7 @@ Object.keys(flags || {}).map(key => {
   process.env[key] = value;
 });
 
-process.env.ENABLE_CLOUDFLARE =
-  flags.ENABLE_CLOUDFLARE === 'true' ? true : false;
+process.env.ENABLE_CLOUDFLARE = !!process.env.ENABLE_CLOUDFLARE;
 
 export default function() {
   return _;
