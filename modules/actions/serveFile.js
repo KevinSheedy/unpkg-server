@@ -10,12 +10,15 @@ export default function serveFile(req, res) {
   if (ext) {
     tags.push(`${ext}-file`);
   }
-
+  const cacheControl =
+   process.env.CACHE_CONTROL;
   res
     .set({
       'Content-Type': getContentTypeHeader(req.entry.contentType),
       'Content-Length': req.entry.size,
-      'Cache-Control': 'public, max-age=31536000', // 1 year
+      'Cache-Control': cacheControl 
+                     ? cacheControl 
+                     : 'public, max-age=31536000', // 1 year
       'Last-Modified': req.entry.lastModified,
       ETag: etag(req.entry.content),
       'Cache-Tag': tags.join(', ')

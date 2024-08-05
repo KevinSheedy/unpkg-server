@@ -37,17 +37,19 @@ node node_modules/unpkg-server/server.js \
 
 These values can be set on the system environment when starting the unpkg `server.js`.
 
-| Flag                   | Options / Description                            | Default value                |
-| ---------------------- | ------------------------------------------------ | ---------------------------- |
-| `NPM_REGISTRY_URL`     | optional - private registry url                  | `https://registry.npmjs.org` |
-| `PORT`                 | optional - port to listen on                     | `8080`                       |
-| `GOOGLE_CLOUD_PROJECT` | The GCP project ID.                              | `null`                       |
-| `GAE_ENV`              | `standard` to enable `@google-cloud/trace-agent` | `null`                       |
-| `DEBUG`                | enableDebugging                                  | `false`                      |
-| `ENABLE_CLOUDFLARE`    | optional `true` or `false`                       | `false`                      |
-| `ORIGIN`               | optional                                         | `https://unpkg.com`          |
-| `CLOUDFLARE_EMAIL`     | optional                                         | `null`                       |
-| `CLOUDFLARE_KEY`       | optional                                         | `null`                       |
+| Flag                   | Options / Description                                  | Default value                |
+| ---------------------- | ------------------------------------------------------ | ---------------------------- |
+| `NPM_REGISTRY_URL`     | optional - private registry url                        | `https://registry.npmjs.org` |
+| `PORT`                 | optional - port to listen on                           | `8080`                       |
+| `GOOGLE_CLOUD_PROJECT` | The GCP project ID.                                    | `null`                       |
+| `GAE_ENV`              | `standard` to enable `@google-cloud/trace-agent`       | `null`                       |
+| `DEBUG`                | enableDebugging                                        | `false`                      |
+| `ENABLE_CLOUDFLARE`    | optional `true` or `false`                             | `false`                      |
+| `ORIGIN`               | optional                                               | `https://unpkg.com`          |
+| `CLOUDFLARE_EMAIL`     | optional                                               | `null`                       |
+| `CLOUDFLARE_KEY`       | optional                                               | `null`                       |
+| `GITLAB_REGISTRY`      | optional - enable work with GitLab npm scoped packages | `null`                       |
+| `CACHE_CONTROL`        | optional - overrides response header                   | `public,max-age=31536000`    |
 
 ## Build Options
 
@@ -61,6 +63,7 @@ Use a `.env` file to set the following options when building the app with `npm r
 ## Documentation
 
 Please visit [the UNPKG website](https://unpkg.com) to learn more about how to use it.
+Visit [GitLab docs](https://docs.gitlab.com/ee/api/packages/npm.html) to learn more about npm rigestry in GitLab.
 
 ## Sponsors
 

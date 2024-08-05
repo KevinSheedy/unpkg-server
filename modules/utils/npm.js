@@ -8,6 +8,9 @@ import bufferStream from './bufferStream.js';
 const npmRegistryURL =
   process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org';
 
+const gitlabRegistry =
+   process.env.GITLAB_REGISTRY;
+
 const agent = new https.Agent({
   keepAlive: true
 });
@@ -167,7 +170,7 @@ export async function getPackageConfig(packageName, version, log) {
  * Returns a stream of the tarball'd contents of the given package.
  */
 export async function getPackage(packageName, version, log) {
-  const tarballName = isScopedPackageName(packageName)
+  const tarballName = isScopedPackageName(packageName) && !gitlabRegistry
     ? packageName.split('/')[1]
     : packageName;
   const tarballURL = `${npmRegistryURL}/${packageName}/-/${tarballName}-${version}.tgz`;
